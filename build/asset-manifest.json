@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c0cee2ca.css",
+    "main.js": "/static/js/main.59c6ea74.js",
+    "static/js/453.9a9fe241.chunk.js": "/static/js/453.9a9fe241.chunk.js",
+    "static/media/lady.png": "/static/media/lady.6aa073be6886dbf6da35.png",
+    "static/media/hand-qrcodes.png": "/static/media/hand-qrcodes.be5f1e8e8b11afc8ed02.png",
+    "static/media/process.png": "/static/media/process.5ab2c542f43355d6a0a0.png",
+    "static/media/imageFirst.jpg": "/static/media/imageFirst.9ea3c7b1cd235f97df92.jpg",
+    "static/media/hospitality.webp": "/static/media/hospitality.7b846c78de4ac49fa3ab.webp",
+    "static/media/retail.webp": "/static/media/retail.212ffce4208ec91ad412.webp",
+    "static/media/real-estate.webp": "/static/media/real-estate.e38e0a426774bb440127.webp",
+    "static/media/healthcare.webp": "/static/media/healthcare.098c90086f4cd4116ab8.webp",
+    "static/media/education.webp": "/static/media/education.c5ca00e6ba98818cc756.webp",
+    "index.html": "/index.html",
+    "main.c0cee2ca.css.map": "/static/css/main.c0cee2ca.css.map",
+    "main.59c6ea74.js.map": "/static/js/main.59c6ea74.js.map",
+    "453.9a9fe241.chunk.js.map": "/static/js/453.9a9fe241.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0cee2ca.css",
+    "static/js/main.59c6ea74.js"
+  ]
+}

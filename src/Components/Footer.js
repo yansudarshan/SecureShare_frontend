@@ -19,10 +19,10 @@ function Footer() {
           <div className="space-y-4">
             <h3 className="font-semibold text-white">Product</h3>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#" className="hover:text-vivid-turquoise transition">Features</a></li>
-              <li><a href="#steps" className="hover:text-vivid-turquoise transition">How it Works</a></li>
-              <li><a href="#qr-basics" className="hover:text-vivid-turquoise transition">QR Codes</a></li>
-              <li><a href="#" className="hover:text-vivid-turquoise transition">Pricing</a></li>
+              <li><button /*href="#"*/ className="hover:text-vivid-turquoise transition">Features</button></li>
+              <li><button /*href="#steps" */ className="hover:text-vivid-turquoise transition">How it Works</button></li>
+              <li><button /*href="#qr-basics"*/ className="hover:text-vivid-turquoise transition">QR Codes</button></li>
+              <li><button /*href="#"*/ className="hover:text-vivid-turquoise transition">Pricing</button></li>
             </ul>
           </div>
 
@@ -30,10 +30,10 @@ function Footer() {
           <div className="space-y-4">
             <h3 className="font-semibold text-white">Resources</h3>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#" className="hover:text-vivid-turquoise transition">Documentation</a></li>
-              <li><a href="#" className="hover:text-vivid-turquoise transition">API Reference</a></li>
-              <li><a href="#" className="hover:text-vivid-turquoise transition">Blog</a></li>
-              <li><a href="#" className="hover:text-vivid-turquoise transition">Support</a></li>
+              <li><button /*href="#"*/ className="hover:text-vivid-turquoise transition">Documentation</button></li>
+              <li><button /*href="#"*/ className="hover:text-vivid-turquoise transition">API Reference</button></li>
+              <li><button /*href="#"*/ className="hover:text-vivid-turquoise transition">Blog</button></li>
+              <li><button /*href="#"*/ className="hover:text-vivid-turquoise transition">Support</button></li>
             </ul>
           </div>
 
@@ -41,10 +41,10 @@ function Footer() {
           <div className="space-y-4">
             <h3 className="font-semibold text-white">Legal</h3>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#" className="hover:text-vivid-turquoise transition">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-vivid-turquoise transition">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-vivid-turquoise transition">Security</a></li>
-              <li><a href="#" className="hover:text-vivid-turquoise transition">Contact</a></li>
+              <li><button /* href="#"*/ className="hover:text-vivid-turquoise transition">Privacy Policy</button></li>
+              <li><button /* href="#"*/ className="hover:text-vivid-turquoise transition">Terms of Service</button></li>
+              <li><button /* href="#"*/ className="hover:text-vivid-turquoise transition">Security</button></li>
+              <li><button /* href="#"*/ className="hover:text-vivid-turquoise transition">Contact</button></li>
             </ul>
           </div>
         </div>
@@ -68,10 +68,10 @@ function Footer() {
             <div className="space-y-4">
               <h3 className="font-semibold text-white text-base">Product</h3>
               <ul className="space-y-3 text-sm text-slate-400">
-                <li><a href="#" className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Features</a></li>
-                <li><a href="#steps" className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">How it Works</a></li>
-                <li><a href="#qr-basics" className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">QR Codes</a></li>
-                <li><a href="#" className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Pricing</a></li>
+                <li><button  /*href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Features</button ></li>
+                <li><button  /*href="#steps"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">How it Works</button ></li>
+                <li><button  /*href="#qr-basics"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">QR Codes</button ></li>
+                <li><button  /*href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Pricing</button ></li>
               </ul>
             </div>
 
@@ -79,10 +79,10 @@ function Footer() {
             <div className="space-y-4">
               <h3 className="font-semibold text-white text-base">Resources</h3>
               <ul className="space-y-3 text-sm text-slate-400">
-                <li><a href="#" className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Documentation</a></li>
-                <li><a href="#" className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">API Reference</a></li>
-                <li><a href="#" className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Blog</a></li>
-                <li><a href="#" className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Support</a></li>
+                <li><button  /* href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Documentation</button ></li>
+                <li><button   /*href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">API Reference</button ></li>
+                <li><button   /*href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Blog</button ></li>
+                <li><button   /*href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Support</button ></li>
               </ul>
             </div>
 
@@ -90,10 +90,10 @@ function Footer() {
             <div className="space-y-4">
               <h3 className="font-semibold text-white text-base">Legal</h3>
               <ul className="space-y-3 text-sm text-slate-400">
-                <li><a href="#" className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Security</a></li>
-                <li><a href="#" className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Contact</a></li>
+                <li><button   /*href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Privacy Policy</button ></li>
+                <li><button   /*href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Terms of Service</button ></li>
+                <li><button   /*href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Security</button ></li>
+                <li><button   /*href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Contact</button ></li>
               </ul>
             </div>
           </div>
