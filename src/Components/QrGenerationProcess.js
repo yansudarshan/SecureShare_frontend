@@ -1,6 +1,4 @@
 
-
-import React from 'react';
 import process from "../Images/process.png"
 
 

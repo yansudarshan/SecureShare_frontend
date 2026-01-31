@@ -1,76 +1,4 @@
-// function QrBasics() {
-//   const features = [
-//     {
-//       title: "High Resilience",
-//       description: "Error correction algorithms ensure data integrity, even if the code is partially damaged.",
-//       icon: "shield"
-//     },
-//     {
-//       title: "Dense Data Storage",
-//       description: "Stores hundreds of times more information than standard barcodes, perfect for keys.",
-//       icon: "storage"
-//     },
-//     {
-//       title: "Universal Reach",
-//       description: "Natively supported by every modern smartphone camera without additional software.",
-//       icon: "smartphone"
-//     }
-//   ];
 
-//   return (
-//     <section id="understand" className="py-24 border-t border-slate-100">
-//       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-//         {/* LEFT IMAGE */}
-//         <div className="flex justify-center order-2 md:order-1">
-//           <div className="w-full max-w-md h-96 rounded-2xl overflow-hidden shadow-2xl">
-//             <img 
-//               src="https://picsum.photos/seed/qrtech/500/600" 
-//               alt="QR Technology" 
-//               className="w-full h-full object-cover"
-//             />
-//           </div>
-//         </div>
-
-//         {/* RIGHT CONTENT */}
-//         <div className="space-y-8 order-1 md:order-2">
-//           <div>
-//             <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold tracking-widest text-vivid-turquoise bg-vivid-turquoise/10 mb-4">
-//               TECHNOLOGY INSIGHTS
-//             </span>
-//             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">What are QR Codes?</h2>
-//             <p className="text-slate-500 text-lg leading-relaxed">
-//               Quick Response (QR) codes are matrix barcodes designed for high-speed readability. When combined with SecureShare, they become a physical gateway to encrypted digital assets.
-//             </p>
-//           </div>
-
-//           <div className="grid grid-cols-1 gap-4">
-//             {features.map((feature, index) => (
-//               <div key={index} className="p-4 rounded-lg bg-white border border-slate-200 hover:border-vivid-turquoise hover:shadow-md transition-all">
-//                 <div className="flex gap-3 items-start">
-//                   <div className="flex-shrink-0">
-//                     <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-vivid-turquoise/10">
-//                       <span className="material-symbols-outlined text-vivid-turquoise text-base">{feature.icon}</span>
-//                     </div>
-//                   </div>
-//                   <div className="flex-1">
-//                     <h3 className="text-base font-semibold text-slate-900 mb-1">{feature.title}</h3>
-//                     <p className="text-slate-600 text-sm leading-relaxed">{feature.description}</p>
-//                   </div>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// export default QrBasics;
-
-
-
-import React from 'react';
 import info_QR from "../Images/hand-qrcodes.png"
 
 const ShieldIcon = () => (
@@ -91,11 +19,6 @@ const DeviceIcon = () => (
   </svg>
 );
 
-const QrIcon = () => (
-  <svg className="w-8 h-8 text-[#2dd4bf]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
-  </svg>
-);
 
 const QrBasics = () => {
   const features = [
