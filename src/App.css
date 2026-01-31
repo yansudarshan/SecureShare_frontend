@@ -1,1 +1,10 @@
+/* Custom styles for navigation responsiveness */
+.nav-link {
+  font-size: 1rem; /* Default font size */
+}
 
+@media (max-width: 360px) {
+  .nav-link {
+    font-size: 0.6rem; /* Smaller font size at 360px and below */
+  }
+}

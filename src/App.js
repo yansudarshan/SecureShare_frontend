@@ -1,3 +1,4 @@
+import "./App.css";
 import Inputimage from "./Components/Inputimage";
 import AdvantagesSection from "./Components/AdvantagesSection";
 import QrGenerationProcess from "./Components/QrGenerationProcess";
@@ -48,16 +49,16 @@ function App() {
   {/* NAVIGATION */}
   <nav className="bg-white/10 py-3">
     <div className="max-w-7xl mx-auto px-6 flex items-center justify-center gap-8 md:gap-16">
-      <a href="#advantages" className="text-vivid-turquoise font-bold hover:opacity-80 transition-opacity">
+      <a href="#advantages" className="nav-link text-vivid-turquoise font-bold hover:opacity-80 transition-opacity">
         Advantages
       </a>
-      <a href="#steps" className="text-vivid-turquoise font-bold hover:opacity-80 transition-opacity">
-        Steps to Upload
+      <a href="#steps" className="nav-link text-vivid-turquoise font-bold hover:opacity-80 transition-opacity">
+        Steps 
       </a>
-      <a href="#understand" className="text-vivid-turquoise font-bold hover:opacity-80 transition-opacity">
+      <a href="#understand" className="nav-link text-vivid-turquoise font-bold hover:opacity-80 transition-opacity">
         Understand QR
       </a>
-      <a href="#industry" className="text-vivid-turquoise font-bold hover:opacity-80 transition-opacity">
+      <a href="#industry" className="nav-link text-vivid-turquoise font-bold hover:opacity-80 transition-opacity">
         Industry Use
       </a>
     </div>

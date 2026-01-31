@@ -58,7 +58,7 @@ function Footer() {
               <span className="text-lg md:text-xl font-bold text-white">SecureShare</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-md">
-              End-to-end encrypted file sharing with ephemeral QR codes for maximum privacy.
+              End-to-end encrypted file sharing with encrypted QR codes for maximum privacy.
             </p>
           </div>
 
@@ -91,7 +91,7 @@ function Footer() {
               <h3 className="font-semibold text-white text-base">Legal</h3>
               <ul className="space-y-3 text-sm text-slate-400">
                 <li><button   /*href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Privacy Policy</button ></li>
-                <li><button   /*href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Terms of Service</button ></li>
+                <li><button   /*href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Service</button ></li>
                 <li><button   /*href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Security</button ></li>
                 <li><button   /*href="#"*/ className="hover:text-vivid-turquoise transition-colors duration-200 block py-1">Contact</button ></li>
               </ul>

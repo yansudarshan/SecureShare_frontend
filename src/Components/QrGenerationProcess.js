@@ -166,7 +166,7 @@ const QrGenerationProcess = () => {
           <br></br><br></br>
           <p className="font-bold ">Ready to secure your data?</p>
           <br></br>
-          <p>Join over 10,000 users protecting their assets with Secure QR.</p>
+          <p className="text-center">Join over 10,000 users protecting their assets with Secure QR.</p>
           <br></br>
           <a href="#create-qr">
             <button className="px-10 py-3.5 bg-[#71a340] text-white font-semibold rounded-lg shadow-lg hover:bg-[#639038] transition-all transform hover:-translate-y-1 active:translate-y-0 text-lg">
