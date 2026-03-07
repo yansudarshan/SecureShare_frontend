@@ -14,7 +14,6 @@ function Inputimage() {
   const [isLoading, setIsLoading] = useState(false);
 
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!file) return;
@@ -26,6 +25,7 @@ function Inputimage() {
 
     try {
       setIsLoading(true);
+
       const formData = new FormData();
       formData.append("image", file);
       formData.append("maxDownloads", limitMode === "unlimited" ? -1 : maxDownloads);
@@ -46,7 +46,7 @@ function Inputimage() {
       setIsLoading(false);
     }
   };
-
+// time expiry check
   useEffect(() => {
     if (!response?.expiresAt) return;
 
@@ -80,6 +80,22 @@ function Inputimage() {
   const isExpired = timeLeft === "Expired";
   const isLimitReached = remaining !== "∞" && remaining <= 0;
 
+  // updating download left
+  const handleDownload = async () => {
+  window.open(response.downloadURL, "_blank");
+  // wait for backend to increment count
+  setTimeout(async () => {
+    const res = await fetch(
+      `https://secure-share-backend-sown.onrender.com/file-info/${response.UID}`
+    );
+    const data = await res.json();
+    setResponse(prev => ({
+      ...prev,
+      downloadCount: data.downloadCount
+    }));
+
+  }, 1200);
+};
 
   return (
     <section className="py-20 space-y-20" id="upload-section">
@@ -124,7 +140,7 @@ function Inputimage() {
           <div className="relative bg-white rounded-xl border border-slate-200 p-8 md:p-12 shadow-xl">
             <div className="mb-8 text-center">
               <h3 className="text-2xl font-bold mb-2">Upload & Encrypt</h3>
-              <p className="text-slate-500">Maximum file size: 200 MB per transfer</p>
+              <p className="text-slate-500">Maximum file size: 200 KB per transfer</p>
             </div>
 
             {/* Download Limit Controls */}
@@ -230,13 +246,13 @@ function Inputimage() {
                       {isLimitReached ? "🚫 Download limit reached" : "⏰ Link expired"}
                     </button>
                   ) : (
-                    <a
-                      href={response.downloadURL}
-                      download
-                      className="px-6 py-3 rounded-lg font-bold text-white bg-vivid-turquoise hover:brightness-110 transition-all"
-                    >
-                      ⬇ Download File
-                    </a>
+                    <button
+                    onClick={handleDownload}
+                    disabled={isExpired || isLimitReached}
+                    className="px-6 py-3 rounded-lg font-bold text-white bg-vivid-turquoise hover:brightness-110 transition-all"
+                      >
+                     ⬇ Download File
+                   </button>
                   )}
                 </div>
               </div>
@@ -249,3 +265,14 @@ function Inputimage() {
 }
 
 export default Inputimage;
+
+
+
+
+
+
+
+
+
+
+
