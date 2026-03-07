@@ -12,7 +12,44 @@ function Inputimage() {
   const [limitMode, setLimitMode] = useState("limited");
   const [maxDownloads, setMaxDownloads] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [showShare, setShowShare] = useState(false);
+  const [shareMessage, setShareMessage] = useState("");
+   
 
+// sharing wala fnc 
+   const handleShare = async () => {
+  if (!email) {
+    setShareMessage("Please enter an email address");
+    return;
+  }
+  try {
+    const res = await fetch(
+      "https://secure-share-backend-sown.onrender.com/share",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email,
+          uid: response.UID
+        })
+      }
+    );
+
+    const data = await res.json();
+    if (!res.ok) {
+      setShareMessage(data.error || "Failed to send email");
+      return;
+    }
+    setShareMessage("Email sent successfully ✔");
+  } catch (err) {
+    setShareMessage("Server error. Try again.");
+  }
+};
+
+//
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -243,7 +280,7 @@ function Inputimage() {
                       disabled
                       className="px-6 py-3 rounded-lg font-bold text-white bg-slate-400 cursor-not-allowed opacity-50"
                     >
-                      {isLimitReached ? "🚫 Download limit reached" : "⏰ Link expired"}
+                      {isLimitReached ? " Download limit reached" : "⏰ Link expired"}
                     </button>
                   ) : (
                     <button
@@ -254,7 +291,38 @@ function Inputimage() {
                      ⬇ Download File
                    </button>
                   )}
+               <button
+               onClick={() => setShowShare(true)}
+               className="px-6 py-3 bg-slate-700 text-white rounded-lg"
+               >
+               Share
+              </button>
+
                 </div>
+                {showShare && (
+                <div className="mt-6 flex flex-col items-center gap-3">
+
+               <input
+              type="email"
+              placeholder="Enter email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="px-4 py-2 border rounded-lg w-72"
+              />
+              <button
+              onClick={handleShare}
+              className="px-6 py-2 bg-vivid-orange text-white rounded-lg hover:brightness-110"
+              >
+             Send
+           </button>
+           
+             {shareMessage && (
+            <p className="text-sm text-green-600 font-medium">
+            {shareMessage}
+            </p>
+            )}
+          </div>
+          )}
               </div>
             )}
           </div>
