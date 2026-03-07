@@ -123,7 +123,7 @@ function Inputimage() {
   // wait for backend to increment count
   setTimeout(async () => {
     const res = await fetch(
-      `https://secureshare-backend-0bvj.onrender.com/file-info/${response.UID}`
+      `https://secureshare-backend-0bvj.onrender.com/download/${response.UID}`
     );
     const data = await res.json();
     setResponse(prev => ({
