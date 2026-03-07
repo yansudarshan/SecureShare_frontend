@@ -25,7 +25,7 @@ function Inputimage() {
   }
   try {
     const res = await fetch(
-      "https://secure-share-backend-sown.onrender.com/share",
+      "https://secureshare-backend-0bvj.onrender.com/share",
       {
         method: "POST",
         headers: {
@@ -67,7 +67,7 @@ function Inputimage() {
       formData.append("image", file);
       formData.append("maxDownloads", limitMode === "unlimited" ? -1 : maxDownloads);
 
-      const res = await fetch("https://secure-share-backend-sown.onrender.com/upload", {
+      const res = await fetch("https://secureshare-backend-0bvj.onrender.com/upload", {
         method: "POST",
         body: formData,
       });
@@ -123,7 +123,7 @@ function Inputimage() {
   // wait for backend to increment count
   setTimeout(async () => {
     const res = await fetch(
-      `https://secure-share-backend-sown.onrender.com/file-info/${response.UID}`
+      `https://secureshare-backend-0bvj.onrender.com/file-info/${response.UID}`
     );
     const data = await res.json();
     setResponse(prev => ({
@@ -265,7 +265,7 @@ function Inputimage() {
                     <p className="font-bold text-lg text-slate-900">{timeLeft}</p>
                   </div>
                   <div className="bg-slate-50 p-4 rounded-lg">
-                    <p className="text-slate-600">📥 Downloads Limit</p>
+                    <p className="text-slate-600"> Downloads Limit</p>
                     <p className="font-bold text-lg text-slate-900">{remaining}</p>
                   </div>
                 </div>
@@ -315,7 +315,7 @@ function Inputimage() {
               >
              Send
            </button>
-           
+
              {shareMessage && (
             <p className="text-sm text-green-600 font-medium">
             {shareMessage}
