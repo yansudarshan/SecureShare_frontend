@@ -117,19 +117,31 @@ function Inputimage() {
   const isLimitReached = remaining !== "∞" && remaining <= 0;
 
   // updating download left
-  const handleDownload = async () => {
-  window.open(response.downloadURL, "_blank");
-  // wait for backend to increment count
-  setTimeout(async () => {
-    const res = await fetch(
-      `https://secureshare-backend-0bvj.onrender.com/download/${response.UID}`
-    );
-    const data = await res.json();
-    setResponse(prev => ({
-      ...prev,
-      downloadCount: data.downloadCount
-    }));
 
+// download fnc
+ const handleDownload = async () => {
+
+  setResponse(prev => ({
+    ...prev,
+    downloadCount: (prev.downloadCount ?? 0) + 1
+  }));
+
+  window.open(response.downloadURL, "_blank");
+
+  setTimeout(async () => {
+    try {
+      const res = await fetch(
+        `https://secureshare-backend-0bvj.onrender.com/file-info/${response.UID}`
+      );
+      const data = await res.json();
+      setResponse(prev => ({
+        ...prev,
+        downloadCount: data.downloadCount
+      }));
+
+    } catch (err) {
+      console.error("Failed to sync download count");
+    }
   }, 1200);
 };
 
@@ -264,7 +276,7 @@ function Inputimage() {
                     <p className="font-bold text-lg text-slate-900">{timeLeft}</p>
                   </div>
                   <div className="bg-slate-50 p-4 rounded-lg">
-                    <p className="text-slate-600"> Downloads Limit</p>
+                    <p className="text-slate-600"> Downloads Left</p>
                     <p className="font-bold text-lg text-slate-900">{remaining}</p>
                   </div>
                 </div>
@@ -310,6 +322,7 @@ function Inputimage() {
               />
               <button
               onClick={handleShare}
+              disabled={isExpired || isLimitReached}
               className="px-6 py-2 bg-vivid-orange text-white rounded-lg hover:brightness-110"
               >
              Send
