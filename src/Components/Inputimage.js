@@ -37,7 +37,6 @@ function Inputimage() {
         })
       }
     );
-
     const data = await res.json();
     if (!res.ok) {
       setShareMessage(data.error || "Failed to send email");
