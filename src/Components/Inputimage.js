@@ -276,7 +276,7 @@ function Inputimage() {
                     <p className="font-bold text-lg text-slate-900">{timeLeft}</p>
                   </div>
                   <div className="bg-slate-50 p-4 rounded-lg">
-                    <p className="text-slate-600"> Downloads Left</p>
+                    <p className="text-slate-600"> Downloads Limit</p>
                     <p className="font-bold text-lg text-slate-900">{remaining}</p>
                   </div>
                 </div>
