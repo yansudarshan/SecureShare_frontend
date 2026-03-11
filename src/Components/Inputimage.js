@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 import lady_scanning from "../Images/lady.png";
 
-
 function Inputimage() {
   const [file, setFile] = useState(null);
   const [response, setResponse] = useState(null);
@@ -12,43 +11,24 @@ function Inputimage() {
   const [limitMode, setLimitMode] = useState("limited");
   const [maxDownloads, setMaxDownloads] = useState(3);
   const [isLoading, setIsLoading] = useState(false);
-  const [email, setEmail] = useState("");
-  const [showShare, setShowShare] = useState(false);
-  const [shareMessage, setShareMessage] = useState("");
-   
 
-// sharing wala fnc 
-   const handleShare = async () => {
-  if (!email) {
-    setShareMessage("Please enter an email address");
-    return;
-  }
-  try {
-    const res = await fetch(
-      "https://secureshare-backend-0bvj.onrender.com/share",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          email,
-          uid: response.UID
-        })
+  // Universal Native Share Function
+  const handleNativeShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "SecureShare File",
+          text: "Here is your securely shared file link.",
+          url: response.downloadURL,
+        });
+      } catch (err) {
+        console.error("Error sharing:", err);
       }
-    );
-    const data = await res.json();
-    if (!res.ok) {
-      setShareMessage(data.error || "Failed to send email");
-      return;
+    } else {
+      // Fallback for browsers (like older desktop browsers) that don't support native share
+      alert("Native sharing is not supported on this browser. Please use the 'Copy Link' button instead.");
     }
-    setShareMessage("Email sent successfully ✔");
-  } catch (err) {
-    setShareMessage("Server error. Try again.");
-  }
-};
-
-//
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -82,7 +62,8 @@ function Inputimage() {
       setIsLoading(false);
     }
   };
-// time expiry check
+
+  // time expiry check
   useEffect(() => {
     if (!response?.expiresAt) return;
 
@@ -108,7 +89,7 @@ function Inputimage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const remaining = 
+  const remaining =
     response && response.maxDownloads !== -1
       ? response.maxDownloads - (response.downloadCount ?? 0)
       : "∞";
@@ -116,34 +97,30 @@ function Inputimage() {
   const isExpired = timeLeft === "Expired";
   const isLimitReached = remaining !== "∞" && remaining <= 0;
 
-  // updating download left
+  // download fnc
+  const handleDownload = async () => {
+    setResponse(prev => ({
+      ...prev,
+      downloadCount: (prev.downloadCount ?? 0) + 1
+    }));
 
-// download fnc
- const handleDownload = async () => {
+    window.open(response.downloadURL, "_blank");
 
-  setResponse(prev => ({
-    ...prev,
-    downloadCount: (prev.downloadCount ?? 0) + 1
-  }));
-
-  window.open(response.downloadURL, "_blank");
-
-  setTimeout(async () => {
-    try {
-      const res = await fetch(
-        `https://secureshare-backend-0bvj.onrender.com/file-info/${response.UID}`
-      );
-      const data = await res.json();
-      setResponse(prev => ({
-        ...prev,
-        downloadCount: data.downloadCount
-      }));
-
-    } catch (err) {
-      console.error("Failed to sync download count");
-    }
-  }, 1200);
-};
+    setTimeout(async () => {
+      try {
+        const res = await fetch(
+          `https://secureshare-backend-0bvj.onrender.com/file-info/${response.UID}`
+        );
+        const data = await res.json();
+        setResponse(prev => ({
+          ...prev,
+          downloadCount: data.downloadCount
+        }));
+      } catch (err) {
+        console.error("Failed to sync download count");
+      }
+    }, 1200);
+  };
 
   return (
     <section className="py-20 space-y-20" id="upload-section">
@@ -180,7 +157,6 @@ function Inputimage() {
           </div>
         </div>
       </div>
-
 
       <div className="max-w-4xl mx-auto" id="create-qr">
         <div className="relative group">
@@ -295,46 +271,21 @@ function Inputimage() {
                     </button>
                   ) : (
                     <button
-                    onClick={handleDownload}
-                    disabled={isExpired || isLimitReached}
-                    className="px-6 py-3 rounded-lg font-bold text-white bg-vivid-turquoise hover:brightness-110 transition-all"
-                      >
-                     ⬇ Download File
-                   </button>
+                      onClick={handleDownload}
+                      disabled={isExpired || isLimitReached}
+                      className="px-6 py-3 rounded-lg font-bold text-white bg-vivid-turquoise hover:brightness-110 transition-all"
+                    >
+                      ⬇ Download File
+                    </button>
                   )}
-               <button
-               onClick={() => setShowShare(true)}
-               className="px-6 py-3 bg-slate-700 text-white rounded-lg"
-               >
-               Share
-              </button>
-
+                  <button
+                    onClick={handleNativeShare}
+                    disabled={isExpired || isLimitReached}
+                    className="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-lg transition-all"
+                  >
+                    Share
+                  </button>
                 </div>
-                {showShare && (
-                <div className="mt-6 flex flex-col items-center gap-3">
-
-               <input
-              type="email"
-              placeholder="Enter email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="px-4 py-2 border rounded-lg w-72"
-              />
-              <button
-              onClick={handleShare}
-              disabled={isExpired || isLimitReached}
-              className="px-6 py-2 bg-vivid-orange text-white rounded-lg hover:brightness-110"
-              >
-             Send
-           </button>
-
-             {shareMessage && (
-            <p className="text-sm text-green-600 font-medium">
-            {shareMessage}
-            </p>
-            )}
-          </div>
-          )}
               </div>
             )}
           </div>
@@ -345,13 +296,6 @@ function Inputimage() {
 }
 
 export default Inputimage;
-
-
-
-
-
-
-
 
 
 
